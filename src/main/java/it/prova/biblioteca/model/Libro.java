@@ -20,7 +20,7 @@ public class Libro {
 	@Column(name = "genere")
 	private Genere genere;
 	@Column(name = "numero_pagine")
-	private int numPagine;
+	private Integer numPagine;
 	@Column(name = "data_pubblicazione")
 	private LocalDate dataPubblicazione;
 	@ManyToOne(fetch = FetchType.LAZY)

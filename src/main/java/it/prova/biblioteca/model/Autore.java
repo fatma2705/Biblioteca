@@ -1,5 +1,6 @@
 package it.prova.biblioteca.model;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -27,7 +28,7 @@ public class Autore {
 	@Column(name = "nome_arte")
 	private String nomeArte;
 	@Column(name = "data_nascita")
-	private String dataNascita;
+	private LocalDate dataNascita;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "autore")
 	private Set<Libro> libri = new HashSet<>();
 
@@ -35,7 +36,7 @@ public class Autore {
 
 	}
 
-	public Autore(Long id, String nome, String cognome, String nomeArte, String dataNascita) {
+	public Autore(Long id, String nome, String cognome, String nomeArte, LocalDate dataNascita) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
@@ -75,11 +76,11 @@ public class Autore {
 		this.nomeArte = nomeArte;
 	}
 
-	public String getDataNascita() {
+	public LocalDate getDataNascita() {
 		return dataNascita;
 	}
 
-	public void setDataNascita(String dataNascita) {
+	public void setDataNascita(LocalDate dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 
