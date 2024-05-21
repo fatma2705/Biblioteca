@@ -64,11 +64,11 @@ public class Libro {
 		this.genere = genere;
 	}
 
-	public int getNumPagine() {
+	public Integer getNumPagine() {
 		return numPagine;
 	}
 
-	public void setNumPagine(int numPagine) {
+	public void setNumPagine(Integer numPagine) {
 		this.numPagine = numPagine;
 	}
 
