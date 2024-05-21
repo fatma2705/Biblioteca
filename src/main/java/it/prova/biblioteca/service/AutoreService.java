@@ -12,7 +12,7 @@ public interface AutoreService {
 
 	public Autore caricaSingoloElemento(Long id);
 
-	public Autore caricaSingoloElementoConFilms(Long id);
+	public Autore caricaSingoloElementoConLibri(Long id);
 
 	public void aggiorna(Autore autoreInstance);
 
