@@ -107,4 +107,33 @@ public class AutoreController {
 
 	}
 
+	@GetMapping("/preDelete/{idAutore}")
+	public String prepareDelete(@PathVariable(required = true) Long idAutore, RedirectAttributes redirectAttrs,
+			Model model) {
+
+		Autore temp = autoreService.caricaSingoloElemento(idAutore);
+		if (!temp.getLibri().isEmpty()) {
+			redirectAttrs.addFlashAttribute("erroeMessage",
+					"Impossibile rimuovere l'autore ci sono ancora i suoi libri");
+			return "redirect:/autore";
+		}
+		model.addAttribute("toDelete_autore_attr",
+				AutoreDTO.biuldAutoreDTOFromModel(autoreService.caricaSingoloElemento(idAutore)));
+		return "autore/delete";
+	}
+
+	@PostMapping("/delete")
+	public String delete(@RequestParam(required = true) Long idAutore, RedirectAttributes redirectAttrs) {
+
+		Autore temp = autoreService.caricaSingoloElemento(idAutore);
+		if (!temp.getLibri().isEmpty()) {
+			redirectAttrs.addFlashAttribute("erroeMessage",
+					"Impossibile rimuovere l'autore , ci sono ancora i suoi libri ");
+			return "redirect:/autore";
+		}
+		autoreService.rimuovi(idAutore);
+		redirectAttrs.addFlashAttribute("successmessage", "La rimozione è avvenuta con successo !");
+		return "redirect:/autore";
+	}
+
 }
