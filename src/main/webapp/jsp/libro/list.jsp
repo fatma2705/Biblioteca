@@ -44,7 +44,7 @@
 				</div>
 				<div class='card-body'>
 					<a class="btn btn-primary "
-						href="${pageContext.request.contextPath}/film/insert">Add New</a>
+						href="${pageContext.request.contextPath}/libro/insert">Add New</a>
 
 					<div class='table-responsive'>
 						<table class='table table-striped '>

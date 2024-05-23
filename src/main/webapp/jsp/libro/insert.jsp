@@ -194,7 +194,7 @@
 									$("#autoreSearchInput").autocomplete({
 										 source: function(request, response) {
 										        $.ajax({
-										            url: "../autore/searchAutoreAjax",
+										            url: "../autore/searchAutoriAjax",
 										            datatype: "json",
 										            data: {
 										                term: request.term,   

@@ -77,7 +77,11 @@ public class LibroDTO {
 	}
 
 	public Integer getNumPagine() {
-		return numPagine;
+		if (numPagine == null) {
+			// Handle the null case, for example, return a default value
+			return 0; // or throw a custom exception
+		}
+		return numPagine.intValue();
 	}
 
 	public void setNumPagine(Integer numPagine) {
@@ -101,7 +105,7 @@ public class LibroDTO {
 	}
 
 	public Libro buildLibroModel() {
-		return new Libro(this.id, this.titolo, this.genere, this.numPagine, this.dataPubblicazione,
+		return new Libro(this.id, this.titolo, this.genere, this.numPagine != null ? this.numPagine : 0, this.dataPubblicazione,
 				this.autore.buildAutoreModel());
 	}
 

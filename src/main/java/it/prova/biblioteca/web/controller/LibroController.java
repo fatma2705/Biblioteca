@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -77,7 +78,14 @@ public class LibroController {
 		return "libro/search";
 	}
 
-	@PostMapping("/show/{idLibro}")
+	@PostMapping("/list")
+	public String listLibri(LibroDTO libroExample, ModelMap model) {
+		List<Libro> libri = libroService.findByExample(libroExample.buildLibroModel());
+		model.addAttribute("libro_list_attribute", LibroDTO.createLibroDTOListFromModelList(libri, false));
+		return "libro/list";
+	}
+
+	@GetMapping("/show/{idLibro}")
 	public String showLibro(@PathVariable(required = true) Long idLibro, Model model) {
 		model.addAttribute("show_libro_attr",
 				LibroDTO.biuldLibroDTOFromModel(libroService.caricaSingoloElemento(idLibro), true));
