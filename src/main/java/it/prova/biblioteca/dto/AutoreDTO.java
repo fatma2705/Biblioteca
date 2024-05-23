@@ -1,6 +1,6 @@
 package it.prova.biblioteca.dto;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,13 +24,13 @@ public class AutoreDTO {
 	private String nomeArte;
 
 	@NotNull(message = "{autore.dataNascita.notnull")
-	private LocalDate dataNascita;
+	private Date dataNascita;
 
 	public AutoreDTO() {
 
 	}
 
-	public AutoreDTO(Long id, String nome, String cognome, String nomeArte, LocalDate dataNascita) {
+	public AutoreDTO(Long id, String nome, String cognome, String nomeArte, Date dataNascita) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
@@ -70,11 +70,11 @@ public class AutoreDTO {
 		this.nomeArte = nomeArte;
 	}
 
-	public LocalDate getDataNascita() {
+	public Date getDataNascita() {
 		return dataNascita;
 	}
 
-	public void setDataNascita(LocalDate dataNascita) {
+	public void setDataNascita(Date dataNascita) {
 		this.dataNascita = dataNascita;
 	}
 

@@ -1,15 +1,20 @@
 package it.prova.biblioteca.model;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
+
+@Entity
+@Table(name = "libro")
 public class Libro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +27,7 @@ public class Libro {
 	@Column(name = "numero_pagine")
 	private Integer numPagine;
 	@Column(name = "data_pubblicazione")
-	private LocalDate dataPubblicazione;
+	private Date dataPubblicazione;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "autore_id", nullable = false)
 	private Autore autore;
@@ -31,7 +36,7 @@ public class Libro {
 
 	}
 
-	public Libro(Long id, String titolo, Genere genere, int numPagine, LocalDate dataPubblicazione, Autore autore) {
+	public Libro(Long id, String titolo, Genere genere, int numPagine, Date dataPubblicazione, Autore autore) {
 		this.id = id;
 		this.titolo = titolo;
 		this.genere = genere;
@@ -72,11 +77,11 @@ public class Libro {
 		this.numPagine = numPagine;
 	}
 
-	public LocalDate getDataPubblicazione() {
+	public Date getDataPubblicazione() {
 		return dataPubblicazione;
 	}
 
-	public void setDataPubblicazione(LocalDate dataPubblicazione) {
+	public void setDataPubblicazione(Date dataPubblicazione) {
 		this.dataPubblicazione = dataPubblicazione;
 	}
 

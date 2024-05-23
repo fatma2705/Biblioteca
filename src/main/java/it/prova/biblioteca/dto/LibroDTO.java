@@ -1,6 +1,6 @@
 package it.prova.biblioteca.dto;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +25,7 @@ public class LibroDTO {
 	private Integer numPagine;
 
 	@NotNull(message = "{libro.dataPubblicazione.notnull}")
-	private LocalDate dataPubblicazione;
+	private Date dataPubblicazione;
 
 	@NotNull(message = "{libro.autore.notnull}")
 	private AutoreDTO autore;
@@ -34,7 +34,7 @@ public class LibroDTO {
 
 	}
 
-	public LibroDTO(Long id, String titolo, Genere genere, Integer numPagine, LocalDate dataPubblicazione,
+	public LibroDTO(Long id, String titolo, Genere genere, Integer numPagine, Date dataPubblicazione,
 			AutoreDTO autore) {
 		this.id = id;
 		this.titolo = titolo;
@@ -44,7 +44,7 @@ public class LibroDTO {
 		this.autore = autore;
 	}
 
-	public LibroDTO(Long id, String titolo, Genere genere, Integer numPagine, LocalDate dataPubblicazione) {
+	public LibroDTO(Long id, String titolo, Genere genere, Integer numPagine, Date dataPubblicazione) {
 		this.id = id;
 		this.titolo = titolo;
 		this.genere = genere;
@@ -84,11 +84,11 @@ public class LibroDTO {
 		this.numPagine = numPagine;
 	}
 
-	public LocalDate getDataPubblicazione() {
+	public Date getDataPubblicazione() {
 		return dataPubblicazione;
 	}
 
-	public void setDataPubblicazione(LocalDate dataPubblicazione) {
+	public void setDataPubblicazione(Date dataPubblicazione) {
 		this.dataPubblicazione = dataPubblicazione;
 	}
 

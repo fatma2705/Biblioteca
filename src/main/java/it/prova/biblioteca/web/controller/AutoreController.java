@@ -72,7 +72,7 @@ public class AutoreController {
 		List<Autore> autori = autoreService
 				.findByExampleWithPagination(autoreExample.buildAutoreModel(), pageNo, pageSize, sortBy).getContent();
 
-		model.addAttribute("autore_list_attribute", AutoreDTO.createAutoreDTOListFromModelList(autori));
+		model.addAttribute("autori_list_attribute", AutoreDTO.createAutoreDTOListFromModelList(autori));
 
 		return "autore/list";
 	}
