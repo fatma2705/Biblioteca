@@ -22,6 +22,8 @@ public interface AutoreService {
 
 	public List<Autore> findByExample(Autore example);
 
+	public List<Autore> cercaByCognomeENomeILike(String term);
+
 	public Page<Autore> findByExampleWithPagination(Autore example, Integer pageNo, Integer pageSize, String sortBy);
 
 }

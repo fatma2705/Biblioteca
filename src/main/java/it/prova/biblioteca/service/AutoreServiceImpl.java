@@ -1,6 +1,5 @@
 package it.prova.biblioteca.service;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -89,6 +88,11 @@ public class AutoreServiceImpl implements AutoreService {
 		else
 			paging = PageRequest.of(pageNo, pageSize, Sort.by(sortBy));
 		return repository.findAll(specificationCriteria, paging);
+	}
+
+	@Transactional(readOnly = true)
+	public List<Autore> cercaByCognomeENomeILike(String term) {
+		return repository.findByCognomeIgnoreCaseContainingOrNomeIgnoreCaseContainingOrderByNomeAsc(term, term);
 	}
 
 }
