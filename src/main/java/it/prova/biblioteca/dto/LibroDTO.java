@@ -105,8 +105,8 @@ public class LibroDTO {
 	}
 
 	public Libro buildLibroModel() {
-		return new Libro(this.id, this.titolo, this.genere, this.numPagine != null ? this.numPagine : 0, this.dataPubblicazione,
-				this.autore.buildAutoreModel());
+		return new Libro(this.id, this.titolo, this.genere, this.numPagine != null ? this.numPagine : 0,
+				this.dataPubblicazione, this.autore.buildAutoreModel());
 	}
 
 	public static LibroDTO biuldLibroDTOFromModel(Libro libroModel, boolean includeAutore) {

@@ -12,7 +12,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
-
 @Entity
 @Table(name = "libro")
 public class Libro {
@@ -70,12 +69,12 @@ public class Libro {
 	}
 
 	public Integer getNumPagine() {
-		 if (numPagine == null) {
-		        // Handle the null case, for example, return a default value
-		        return 0; // or throw a custom exception
-		    }
-		    return numPagine.intValue();
-		
+		if (numPagine == null) {
+			// Handle the null case, for example, return a default value
+			return 0; // or throw a custom exception
+		}
+		return numPagine.intValue();
+
 	}
 
 	public void setNumPagine(Integer numPagine) {

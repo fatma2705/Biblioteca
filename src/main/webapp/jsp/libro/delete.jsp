@@ -29,23 +29,23 @@
 				<div class='card-body'>
 					<dl class="row">
 						<dt class="col-sm-3 text-right">Id:</dt>
-						<dd class="col-sm-9">${delete_libro_attr.id}</dd>
+						<dd class="col-sm-9">${toDelete_libro_attr.id}</dd>
 					</dl>
 
 					<dl class="row">
 						<dt class="col-sm-3 text-right">Titolo:</dt>
-						<dd class="col-sm-9">${delete_libro_attr.titolo}</dd>
+						<dd class="col-sm-9">${toDelete_libro_attr.titolo}</dd>
 					</dl>
 
 					<dl class="row">
 						<dt class="col-sm-3 text-right">Genere:</dt>
-						<dd class="col-sm-9">${delete_libro_attr.genere}</dd>
+						<dd class="col-sm-9">${toDelete_libro_attr.genere}</dd>
 					</dl>
 
 					<dl class="row">
 						<dt class="col-sm-3 text-right">Data Pubblicazione:</dt>
 						<dd class="col-sm-9">
-							<fmt:parseDate value="${delete_libro_attr.dataPubblicazione}"
+							<fmt:parseDate value="${toDelete_libro_attr.dataPubblicazione}"
 								pattern="yyyy-MM-dd" var="localDateToBeParsed" type="date" />
 							<fmt:formatDate pattern="dd/MM/yyyy"
 								value="${localDateToBeParsed}" />
@@ -54,7 +54,7 @@
 
 					<dl class="row">
 						<dt class="col-sm-3 text-right">Numero Pagine:</dt>
-						<dd class="col-sm-9">${delete_libro_attr.numPagine}</dd>
+						<dd class="col-sm-9">${toDelete_libro_attr.numPagine}</dd>
 					</dl>
 
 					<!-- info Regista -->
@@ -67,15 +67,15 @@
 						<div class="card card-body">
 							<dl class="row">
 								<dt class="col-sm-3 text-right">Nome:</dt>
-								<dd class="col-sm-9">${delete_libro_attr.autore.nome}</dd>
+								<dd class="col-sm-9">${toDelete_libro_attr.autore.nome}</dd>
 							</dl>
 							<dl class="row">
 								<dt class="col-sm-3 text-right">Cognome:</dt>
-								<dd class="col-sm-9">${delete_libro_attr.autore.cognome}</dd>
+								<dd class="col-sm-9">${toDelete_libro_attr.autore.cognome}</dd>
 							</dl>
 							<dl class="row">
 								<dt class="col-sm-3 text-right">Nome Arte:</dt>
-								<dd class="col-sm-9">${delete_libro_attr.autore.nomeArte}</dd>
+								<dd class="col-sm-9">${toDelete_libro_attr.autore.nomeArte}</dd>
 							</dl>
 
 						</div>
@@ -89,7 +89,7 @@
 					<form method="post"
 						action="${pageContext.request.contextPath}/libro/delete">
 						<input type="hidden" name="idLibro"
-							value="${delete_libro_attr.id}">
+							value="${toDelete_libro_attr.id}">
 						<button type="submit" name="submit" id="submit"
 							class="btn btn-danger">Conferma</button>
 						<a href="${pageContext.request.contextPath}/libro"
